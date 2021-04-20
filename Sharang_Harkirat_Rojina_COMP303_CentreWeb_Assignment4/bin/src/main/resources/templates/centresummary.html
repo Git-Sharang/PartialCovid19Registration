@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/summaryStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Centre Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8083/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Centres Summary</h1>
+    </div>
+    <br /> <br />
+    <div class="logout-area">
+        <a href="/">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Back
+        </a>
+    </div>
+    <div class="students-table">
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>CentreID</th>
+					<th>Centre Name</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>Phone</th>
+					<th>Website</th>
+					<th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr th:each="centre : ${centreList}">
+					<td th:text="${centre.centreId}">Centre Id</td>
+					<td th:text="${centre.centreName}">Centre Name</td>
+					<td th:text="${centre.address}">Address</td>
+					<td th:text="${centre.city}">City</td>
+					<td th:text="${centre.phone}">Phone</td>
+					<td th:text="${centre.website}">Website</td>
+					<td th:text="${centre.email}">Email</td>
+					<td><a style="color:green; text-decoration:none; font-weight:bold;" th:href="@{/centre/{centreId}(centreId=${centre.centreId})}" href="#">Edit</a></td>
+					<td><a style="color:red; text-decoration:none; font-weight:bold;" th:href="@{/centreDelete/{centreId}(centreId=${centre.centreId})}" href="#">Delete</a></td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5> 	
+    </footer>
+</body>
+</html>

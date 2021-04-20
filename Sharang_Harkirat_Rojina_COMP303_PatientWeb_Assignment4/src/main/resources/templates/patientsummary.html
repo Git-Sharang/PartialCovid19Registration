@@ -1,0 +1,69 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/summaryStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Patient Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8081/">HOME</a>
+	  <a href="http://localhost:8083/">CENTRE</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Patients Summary</h1>
+    </div>
+    <br /> <br />
+    <div class="logout-area">
+        <a href="/">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Back
+        </a>
+    </div>
+    <div class="students-table">
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>PatientID</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>OHIP ID</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+				<tr th:each="patient : ${patientList}">
+					<td th:text="${patient.patientId}">Patient Id</td>
+					<td th:text="${patient.firstname} + ' ' + ${patient.lastname}">Name</td>
+					<td th:text="${patient.age}">Age</td>
+					<td th:text="${patient.gender}">Gender</td>
+					<td th:text="${patient.ohip_id}">Ohip  Id</td>
+					<td th:text="${patient.address}">Address</td>
+					<td th:text="${patient.city}">City</td>
+					<td th:text="${patient.phone}">Phone</td>
+					<td><a style="color:green; text-decoration:none; font-weight:bold;" th:href="@{/patient/{patientId}(patientId=${patient.patientId})}" href="#">Edit</a></td>
+					<td><a style="color:red; text-decoration:none; font-weight:bold;" th:href="@{/patientdelete/{patientId}(patientId=${patient.patientId})}" href="#">Delete</a></td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5> 	
+    </footer>
+</body>
+</html>

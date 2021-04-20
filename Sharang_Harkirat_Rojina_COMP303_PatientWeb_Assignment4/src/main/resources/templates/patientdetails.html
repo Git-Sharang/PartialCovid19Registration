@@ -1,0 +1,57 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link href="css/detailStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Patient Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8081/">HOME</a>
+	  <a href="http://localhost:8083/">CENTRE</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Patient Details</h1>
+    </div>
+    <div class="logout-area">
+      <a href="/searchpatient">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Back
+      </a>
+    </div><br/> <br/>
+    <div class="login-box">
+          <div class="user-box">
+          <div th:if="${patientInfo != null}">
+            <h2 th:text="'Patient: ' + ${patientInfo.firstname} + ' ' + ${patientInfo.lastname}">Patient Name</h2>
+		        <div>
+		            <ul>
+                		<li th:text="${patientInfo.age} + ' years old' ">Age</li>
+                		<li th:text="${patientInfo.gender}">Gender</li>
+                		<li th:text="'OHIP ID: ' + ${patientInfo.ohip_id}">ohip_id</li>
+                		<li th:text="'Address: ' + ${patientInfo.address} + ', ' + ${patientInfo.city}">address</li>
+                		<li th:text="'Phone Number: ' + ${patientInfo.phone}">phone</li>
+            		</ul>
+		        </div>
+		   </div>
+		    <div th:if="${error} != null">
+		        <h1 th:text="${error}">Not Found</h1>
+		    </div>        
+          </div>
+    </div>
+    <footer>
+      <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	 	
+  </footer>
+</body>
+</html>

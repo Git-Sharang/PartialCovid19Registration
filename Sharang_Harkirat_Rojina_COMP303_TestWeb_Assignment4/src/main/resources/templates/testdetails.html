@@ -1,0 +1,53 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link href="css/detailStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Test Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8082/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8083/">CENTRE</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Tests</h1>
+    </div>
+    <div class="logout-area">
+      <a href="/searchtest">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Back
+      </a>
+    </div><br/> <br/>
+    <div class="login-box">
+          <div class="user-box">
+          <div th:if="${testList != null}">
+		        <div>
+		            <ul th:each="test : ${testList}">
+                		<li th:text="'Test ID: ' + ${test.testId} + ', ' + 'Status: ' + ${test.status} + 
+                		' and the Symptoms are: ' + ${test.symptoms} + '.'"></li>
+            		</ul>
+		        </div>
+		   </div>
+		    <div th:if="${error} != null">
+		        <h1 th:text="${error}">Not Found</h1>
+		    </div>        
+          </div>
+    </div>
+    <footer>
+      <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	 	
+  </footer>
+</body>
+</html>

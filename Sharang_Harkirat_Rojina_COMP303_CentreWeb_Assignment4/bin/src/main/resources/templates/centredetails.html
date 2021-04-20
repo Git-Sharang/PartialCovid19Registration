@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <link href="css/detailStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Centre Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8083/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Centre Details</h1>
+    </div>
+    <div class="logout-area">
+      <a href="/searchcentre">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Back
+      </a>
+    </div><br/> <br/>
+    <div class="login-box">
+          <div class="user-box">
+          <div th:if="${centreList != null}">
+		        <div>
+		            <ul th:each="centre : ${centreList}">
+                		<li th:text="'Centre ID: ' + ${centre.centreId} + ', ' + 'Email: ' + ${centre.email} + 
+                		', Website: ' + ${centre.website} + '      Address: ' + ${centre.address} + 
+                		', ' + ${centre.city} + '         Phone: ' + ${centre.phone}"></li>
+            		</ul>
+		        </div>
+		   </div>
+		    <div th:if="${error} != null">
+		        <h1 th:text="${error}">Not Found</h1>
+		    </div>        
+          </div>
+    </div>
+    <footer>
+      <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	 	
+  </footer>
+</body>
+</html>

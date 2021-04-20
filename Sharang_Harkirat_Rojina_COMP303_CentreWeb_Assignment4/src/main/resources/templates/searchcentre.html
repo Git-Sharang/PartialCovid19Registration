@@ -1,0 +1,56 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link href="css/searchStyle.css" rel="stylesheet" type="text/css">
+    <title>COVID-19 Testing System - Centre Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8083/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+    <div class='main-heading'>
+        <h1>Search For a Centre</h1>
+    </div>
+    <br /> <br />
+    <div class="logout-area">
+        <a href="/">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Back
+        </a>
+    </div>
+    <div class="login-box">
+        <form action="centresearch">
+          <div class="user-box">
+            <input type="text" name="centreName" placeholder="Enter the name of the centre"required>
+          </div>
+          <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input type="submit" value="Search">
+          </a>
+        </form>
+    </div>
+    <div th:if="${error} != null">
+        <h1 th:text="${error}">Error</h1>
+    </div>
+    <footer>
+        <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	
+    </footer>
+</body>
+</html>

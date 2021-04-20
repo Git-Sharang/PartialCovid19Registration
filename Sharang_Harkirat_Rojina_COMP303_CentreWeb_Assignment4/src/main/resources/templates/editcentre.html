@@ -1,0 +1,77 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link th:href="@{/css/submain.css}" rel="stylesheet" >
+    <title>COVID-19 Testing System - Centre Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8083/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+  <div class='main-heading'>
+  </div>
+  <div class="login-box">
+    <h3>Update the Centre's Information</h3>      
+    <form action="#" method="post" th:action="@{/centreUpdate/{centreId}(centreId=${centre.centreId})}" th:object="${centre}">
+            <div class="user-box">
+              <input type="number" th:field="*{centreId}" id="centreId" hidden>
+              <input type="text" th:field="*{centreName}" id="centreName">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('centreName')}" th:errors="*{centreName}"></span>
+              <label>Centre Name</label>
+            </div>
+         	<br />
+            <div class="user-box">
+              <input type="text" id="address" th:field="*{address}">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+              <label>Address</label>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" id="city" th:field="*{city}">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+              <label>City</label>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" id="phone" th:field="*{phone}">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+              <label>Phone Number</label>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" id="website" th:field="*{website}">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('website')}" th:errors="*{website}"></span>
+              <label>Website</label>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" size="30" id="email" th:field="*{email}">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+              <label>Email</label>
+            </div>
+            <br />
+            <a>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <input type="submit" value="Update Centre" />
+            </a>
+          </form>
+          <footer>
+            <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	
+        </footer>
+      </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link th:href="@{/css/submain.css}" rel="stylesheet" >
+    <title>COVID-19 Testing System - Patient Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8081/">HOME</a>
+	  <a href="http://localhost:8083/">CENTRE</a>
+	  <a href="http://localhost:8082/">TEST</a>
+	</div>
+  <div class='main-heading'>
+  </div>
+  <div class="login-box">
+    <h3>Update the Patient's Information</h3>      
+    <form action="#" method="post" th:action="@{/patientUpdate/{patientId}(patientId=${patient.patientId})}" th:object="${patient}">
+            <div class="user-box">
+              <input type="number" th:field="*{patientId}" id="patientId" hidden>
+              <input type="text" th:field="*{firstname}" id="firstname">
+              <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+              <label>First Name</label>
+            </div>
+            <div class="user-box">
+              <input type="text" th:field="*{lastname}" id="lastname" >
+              <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+              <label>Last Name</label>
+            </div>
+            <div class="user-box">
+              <input type="number" th:field="*{age}" id="age" >
+              <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+              <label>Age</label>
+            </div>
+            <div style="color:white;">
+				<input type="radio" id="gender" th:field="*{gender}" value="Male" />Male
+				<input type="radio" id="gender" th:field="*{gender}" value="Female"/>Female
+				<span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" id="ohip_id" th:field="*{ohip_id}">
+              <span th:if="${#fields.hasErrors('ohip_id')}" th:errors="*{ohip_id}"></span>
+              <label>OHIP ID</label>
+            </div>
+            <div class="user-box">
+              <input type="text" id="address" th:field="*{address}">
+              <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+              <label>Address</label>
+              
+            </div>
+            <div class="user-box">
+              <input type="text" size="30" id="city" th:field="*{city}">
+              <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+              <label>City</label>
+            </div>
+            <div class="user-box">
+              <input type="text" size="30" id="phone" th:field="*{phone}">
+              <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+              <label>Phone Number</label>
+            </div>
+            <a>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <input type="submit" value="Update Patient" />
+            </a>
+          </form>
+          <footer>
+            <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>	
+        </footer>
+      </div>
+</body>
+</html>

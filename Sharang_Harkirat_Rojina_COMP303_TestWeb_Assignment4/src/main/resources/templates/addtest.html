@@ -1,0 +1,58 @@
+<!-- 
+Students:
+Sharang Verma - 300981587
+Harkirat Grewal - 300987512
+Rojina Akter - 300756946
+
+Submission Date: April 02, 2021
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1" />
+    <link th:href="@{/css/submain.css}" rel="stylesheet" >
+    <title>COVID-19 Testing System - Test Area</title>
+</head>
+<body>
+	<div class="container teal borderYtoX">
+	  <a href="http://localhost:8082/">HOME</a>
+	  <a href="http://localhost:8081/">PATIENT</a>
+	  <a href="http://localhost:8083/">CENTRE</a>
+	</div>
+  <div class='main-heading'>
+  </div>
+  <div class="login-box">
+    <h3>Add a Test</h3>      
+    	<form method="post" th:action="@{/addtest}" th:object="${test}" action="#">
+            <div class="user-box">
+              <input type="date" th:field="*{testDate}" id="testDate">
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('testDate')}" th:errors="*{testDate}"></span>
+              <label>Test Date</label>
+            </div>
+            <br />
+            <div class="user-box">
+              <input type="text" th:field="*{symptoms}" id="symptoms" >
+              <span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('symptoms')}" th:errors="*{symptoms}"></span>
+              <label>Symptoms</label>
+            </div>
+            <br />
+            <div style="color:white;">
+				<input type="radio" id="status" th:field="*{status}" value="Negative" />Negative
+				<input type="radio" id="status" th:field="*{status}" value="Positive"/>Positive
+				<br /><span style="margin-top:0px; color:red;" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span>
+            </div>
+            <br />
+            <a>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <input type="submit" value="Add Test" />
+            </a>
+          </form>
+         <footer>
+            <h5>&copy; 2021 Sharang, Harkirat, Rojina All Rights Reserved</h5>  	
+        </footer>
+      </div>
+</body>
+</html>
